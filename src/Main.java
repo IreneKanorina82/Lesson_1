@@ -58,6 +58,7 @@ public class Main {
         //задание 14
         changeMassiv(2, 2);
 
+
     }
 
     static void Threeewords(String word) {
