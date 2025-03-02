@@ -53,10 +53,10 @@ public class Main {
         checkCount();
 
         //задание 13
-        //findElements();
+        findElements();
 
         //задание 14
-        changeMassiv();
+        changeMassiv(2, 2);
 
     }
 
@@ -183,24 +183,26 @@ public class Main {
             else {
                 System.out.println(arr[a]);
             }
-
-            }
         }
+    }
     //задание 13
-//    static void findElements() {
-//        int[] arr = new int [101];
-//        for (int a = 0; a <= 100; a++) {
-//            arr[a] = a;
-//            System.out.println("arr: " + a);
-//        }
-//    }
-    //задание 14
-    static void changeMassiv() {
-        int[]= int len, int initialValue;
-        int[] arr = new int[len];
-        for (int a = 0; a < len; a++) {
-            arr[a] = initialValue;
-                return;
+    static void findElements() {
+        int counter = 1;
+        int[] [] arr = new int [4] [4];
+        for (int a = 0; a < 4; a++) {
+            for (int b = 0; b < a +1; b++) {
+                arr [a][b] = counter;
+                System.out.println(arr [a] [b]);
+            }
+            System.out.println();
         }
+    }
+    //задание 14
+    static void changeMassiv(int len, int initialValue) {
+        int[] arr = new int[len];
+        for (int a = 0; a < arr.length; a++) {
+            arr[a] = initialValue;
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }
