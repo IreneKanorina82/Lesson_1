@@ -1,23 +1,10 @@
 import java.util.Arrays;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.println("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
 
         //задание 1
-        Threeewords("Apple");
-        Threeewords("Orange");
-        Threeewords("Banana");
+        Threewords();
 
         //задание 2
         checkSumSign();
@@ -58,11 +45,14 @@ public class Main {
         //задание 14
         changeMassiv(2, 2);
 
-
     }
 
-    static void Threeewords(String word) {
-        System.out.println(word);
+    static void Threewords() {
+        String str = new String("Apple/Orange/Banana");
+        String strArr[] = str.split("/");
+        for (String temp : strArr) {
+            System.out.println(temp);
+        }
     }
 
     //задание 2
@@ -103,15 +93,19 @@ public class Main {
     }
 
     //задание 5
-    static void checkNumbers() {
+    static boolean checkNumbers() {
         int a = 10;
         int b = 1;
         int c = a + b;
+        boolean i;
         if (c >= 10 && c <= 20) {
-            System.out.println("True");
+            i = true;
+            System.out.println(i);
         } else {
-            System.out.println("False");
+            i = false;
+            System.out.println(i);
         }
+        return i;
     }
 
     //задание 6
@@ -123,39 +117,48 @@ public class Main {
             System.out.println("Отрицательное число");
         }
     }
+
     //задание 7
-    static void checkIntPositives() {
+    static boolean checkIntPositives() {
         int a = 10;
+        boolean i;
         if (a >= 0) {
-            System.out.println("False");
+            i = false;
+            System.out.println(i);
         } else {
-            System.out.println("True");
+            i = true;
+            System.out.println(i);
         }
+        return i;
     }
+
     //задание 8
     static void printIntString() {
         String str = "Снег идет";
-            for (int a = 1; a <= 5; a++) {
-                System.out.println(str);
+        for (int a = 1; a <= 5; a++) {
+            System.out.println(str);
         }
     }
+
     //задание 9
-    static void countYears() {
+    static boolean countYears() {
         int a = 2000;
         if (a % 4 == 0) {
             if (a % 100 == 0) {
                 if (a % 400 == 0) {
-                    System.out.println("True");
+                    return true;
                 } else
-                    System.out.println("False");
+                    return false;
             }
-            System.out.println("True");
+            return true;
         } else
-            System.out.println("False");
+            return false;
     }
+
+
     //задание 10
     static void changeNumbers() {
-        int[] arr = {1,1,0,0,1,0,1,1,0,0};
+        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
         for (int a = 0; a < arr.length; a++) {
             if (arr[a] == 0) {
                 arr[a] = 1;
@@ -165,39 +168,45 @@ public class Main {
         }
         System.out.println(Arrays.toString(arr));
     }
+
     //задание 11
     static void countNumbers() {
-        int[] arr = new int [101];
-        for (int a = 0; a <= 100; a++) {
+        int[] arr = new int[100];
+        for (int a = 0; a <= 99; a++) {
             arr[a] = a;
             System.out.println("arr: " + a);
         }
     }
+
     //задание 12
     static void checkCount() {
-        int[] arr = {1,5,3,2,11,4,5,2,4,8,9,1};
+        int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         for (int a = 0; a < arr.length; a++) {
             if (arr[a] < 6) {
                 arr[a] = arr[a] * 2;
                 System.out.println(arr[a]);
-            }
-            else {
+            } else {
                 System.out.println(arr[a]);
             }
         }
     }
+
     //задание 13
     static void findElements() {
-        int counter = 1;
-        int[] [] arr = new int [4] [4];
-        for (int a = 0; a < 4; a++) {
-            for (int b = 0; b < a +1; b++) {
-                arr [a][b] = counter;
-                System.out.println(arr [a] [b]);
+        int a = 5;
+        int[][] matrix = new int[a][a];
+        for (int b = 0; b < a; b++) {
+            for (int c = 0; c < a + 1; c++) {
+                if (b == c || b + c == a - 1) {
+                    matrix[b][c] = 1;
+                }
             }
-            System.out.println();
+        }
+        for (int[] row : matrix) {
+            System.out.println(Arrays.toString(row));
         }
     }
+
     //задание 14
     static void changeMassiv(int len, int initialValue) {
         int[] arr = new int[len];
